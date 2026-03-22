@@ -1,0 +1,2 @@
+config SHIELD_XIAO_KBD
+    def_bool $(shields_list_contains,xiao_kbd)
