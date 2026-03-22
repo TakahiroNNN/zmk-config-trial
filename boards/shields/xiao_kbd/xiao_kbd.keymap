@@ -9,7 +9,6 @@
             bindings = <
                 &kp A
             >;
-            sensor-bindings = <>;
         };
     };
 };
