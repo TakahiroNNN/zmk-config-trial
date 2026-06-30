@@ -29,6 +29,14 @@ include:
     artifact-name: torabo_tsuki_lp_left_trackpad_peripheral
   - board: bmp_boost
     shield: torabo_tsuki_lp_right
+    snippet: "studio-rpc-usb-uart input-trackpad input-split"
+    artifact-name: torabo_tsuki_lp_right_trackpad_pointer_peripheral
+  - board: bmp_boost
+    shield: torabo_tsuki_lp_left
+    snippet: "studio-rpc-usb-uart input-trackpad input-split"
+    artifact-name: torabo_tsuki_lp_left_trackpad_pointer_peripheral
+  - board: bmp_boost
+    shield: torabo_tsuki_lp_right
     snippet: "studio-rpc-usb-uart split-central input-trackball input-listener input-split-listener"
     artifact-name: torabo_tsuki_lp_right_trackball_central
   - board: bmp_boost
