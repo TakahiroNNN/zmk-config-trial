@@ -2,6 +2,7 @@
 
 * _centralがついているuf2をトラックボールがついている方に、_peripheralを反対側に書き込んでください
   * 右側トラックボールで組み立てた場合は、右手がcentral、左手がperipheralです
+  * トラックボールを使わず右手トラックパッドだけで使う場合は、右手に`*_right_trackpad_central.uf2`を書き込んでください
 * USBでキーボードとして認識されるのはcentral側です。peripheral側だけをUSB接続しても入力デバイスとしては動きません
 * キーマップはkeymap-editorおよびzmk-studioで編集できます
 
@@ -31,3 +32,12 @@
 * 左がトラックボール、右がミニトラックパッド: `torabo_tsuki_lp_left_trackball_central.uf2` と `torabo_tsuki_lp_right_trackpad_pointer_peripheral.uf2`
 
 トラックパッドだけ反応しない場合は、まずスクロールできる画面で`*_trackpad_peripheral.uf2`を試してください。トラックパッド側のキー入力も反応しない場合は、peripheralがcentralへ接続できていないため、両側へ`settings_reset-bmp_boost-zmk.uf2`を書き込んでから再度ペアリングしてください。
+
+## 右手トラックパッド単体で使う場合
+
+左手側を使わず、右手側のミニトラックパッドだけをUSB/BLEデバイスとして使う場合は、`peripheral`ではなく`central`のuf2を書き込んでください。
+
+* スクロール用: `torabo_tsuki_lp_right_trackpad_central.uf2`
+* カーソル移動用: `torabo_tsuki_lp_right_trackpad_pointer_central.uf2`
+
+左手側をキー入力用に追加する場合だけ、左手に`torabo_tsuki_lp_left_peripheral.uf2`を書き込んでください。
