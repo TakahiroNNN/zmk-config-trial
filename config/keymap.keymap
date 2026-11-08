@@ -24,6 +24,10 @@
                 &kp TAB  &kp A  &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &kp K  &kp L  &kp SEMI  &kp MINUS
                 &kp LSHFT  &kp Z  &kp X  &kp C  &kp V  &kp B  &mkp LCLK  &kp B  &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp EQUAL
                 &kp LCTRL  &kp LGUI  &kp LALT  &mo 2  &mo 1  &kp SPACE  &mkp RCLK  &kp SQT  &kp RET  &trans  &trans  &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp BACKSLASH
+#if defined(TORABO_TSUKI_LP_KSCAN_4_DIRECTION_SWITCH)
+                // Additional positions 52..56: up, down, left, right, push.
+                &msc SCRL_UP  &msc SCRL_DOWN  &msc SCRL_LEFT  &msc SCRL_RIGHT  &mkp RCLK
+#endif
             >;
         };
 
@@ -33,6 +37,9 @@
                 &kp TAB  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5  &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &trans  &trans
                 &kp LSHFT  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &trans  &kp ESC  &trans  &trans  &kp DOT  &trans  &trans  &trans
                 &kp LCTRL  &trans  &trans  &trans  &trans  &trans  &trans  &kp GRAVE  &kp TAB  &trans  &trans  &trans  &trans  &trans
+#if defined(TORABO_TSUKI_LP_KSCAN_4_DIRECTION_SWITCH)
+                &msc SCRL_UP  &msc SCRL_DOWN  &msc SCRL_LEFT  &msc SCRL_RIGHT  &mkp RCLK
+#endif
             >;
         };
 
@@ -42,6 +49,9 @@
                 &trans  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5  &kp LEFT_BRACE  &kp MINUS  &kp EQUAL  &kp RIGHT_BRACE  &kp COLON  &trans
                 &trans  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &trans  &trans  &kp LS(MINUS)  &kp LS(EQUAL)  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp BACKSLASH  &trans
                 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp TAB  &kp DEL  &trans  &trans  &trans  &trans
+#if defined(TORABO_TSUKI_LP_KSCAN_4_DIRECTION_SWITCH)
+                &msc SCRL_UP  &msc SCRL_DOWN  &msc SCRL_LEFT  &msc SCRL_RIGHT  &mkp RCLK
+#endif
             >;
         };
 
@@ -51,6 +61,9 @@
                 &trans  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp LEFT  &kp DOWN  &kp UP_ARROW  &kp RIGHT  &kp TAB  &trans
                 &trans  &kp F11  &kp F12  &out OUT_USB  &out OUT_BLE  &bt BT_NXT  &trans  &trans  &kp SINGLE_QUOTE  &kp DQT  &kp GRAVE  &kp TILDE  &kp PIPE  &trans
                 &trans  &trans  &trans  &trans  &kp DELETE  &kp TAB  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+#if defined(TORABO_TSUKI_LP_KSCAN_4_DIRECTION_SWITCH)
+                &msc SCRL_UP  &msc SCRL_DOWN  &msc SCRL_LEFT  &msc SCRL_RIGHT  &mkp RCLK
+#endif
             >;
         };
     };

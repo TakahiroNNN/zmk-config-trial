@@ -6,6 +6,36 @@
 * USBでキーボードとして認識されるのはcentral側です。peripheral側だけをUSB接続しても入力デバイスとしては動きません
 * キーマップはkeymap-editorおよびzmk-studioで編集できます
 
+## 左に4方向スイッチ、右にトラックボールを使う場合
+
+この構成では、次の **2つをセットで** 書き込んでください。右側も4方向スイッチの5入力を含むレイアウトでビルドする必要があります。
+
+| 書き込み先 | ファイル |
+| --- | --- |
+| 左手（4方向スイッチ、peripheral） | `torabo_tsuki_lp_left_4_direction_peripheral.uf2` |
+| 右手（トラックボール、central） | `torabo_tsuki_lp_right_trackball_4_direction_central.uf2` |
+
+上下左右はそれぞれ同じ方向へのスクロール、中央押し込みはマウス右クリックです。全4レイヤーで同じ動作をします。倒している間はスクロールが継続します。
+
+既存のM Layout・52キーの割り当て、レイヤー1/2へのモーメンタリ切り替え、Bluetoothクリアのコンボ、右トラックボール操作時のレイヤー3への一時切り替えは維持しています。4方向スイッチの5入力だけをキーマップ末尾（位置52〜56）へ追加しています。通常構成のuf2も引き続き生成します。
+
+### ビルドと書き込み
+
+1. GitHub Actionsの `Build ZMK firmware` が成功した実行から、`firmware` アーティファクトをダウンロードして展開します。
+2. 左右をそれぞれブートローダーモードにして、上の表にあるuf2を書き込みます。
+3. 右手側をUSB接続し、既存キーと4方向スクロール・右クリックを確認します。
+4. ZMK Studioで以前キーマップを保存したことがある場合は、右手側へ接続して **Restore Stock Settings** を実行します。ファームウェアに埋め込んだ現在のGitHubのキーマップと追加5入力が反映されます。物理レイアウトは **M Layout** を使ってください。
+
+通常の更新では `settings_reset` は不要です。左右が接続できない場合のみ、後述のリセット手順を使ってください。ZMK Studioで保存したキーマップは通常の書き込みでは消えないため、キーマップの反映には上記のStudio側の操作を使います（[ZMK公式ドキュメント](https://v0-3-branch.zmk.dev/docs/features/studio)）。
+
+4方向スイッチは左側のFPC端子に接続します。同じ左側の端子へトラックボールやトラックパッドを同時接続する構成には対応しません。GPIOは提供元の定義に合わせ、上=P0.19、下=P0.18、左=P0.19とP0.18の同時入力、右=P0.16、押し込み=P0.20です。方向は[モジュールの説明](https://github.com/sekigon-gonnoc/4-direction-switch-module#ピン配置)にある取り付け向きが基準です。
+
+### 取り込んだ提供元の更新
+
+2026-11-08時点の[提供元の最新ソース](https://github.com/sekigon-gonnoc/zmk-keyboard-torabo-tsuki-lp/tree/c3dfa3c963456b550845b29cf01f549531a0c05e)から、共通レイアウト定義と4方向スイッチ用スニペットを取り込んでいます。提供元の標準L Layoutではなく、このリポジトリのM Layoutを既定のまま維持しています。
+
+ZMKは提供元に合わせて `v0.3` を使います。[最新リリース](https://github.com/sekigon-gonnoc/zmk-keyboard-torabo-tsuki-lp/releases/tag/latest)に記載された2026-08-15の省電力更新は、既存のBMP Boost `v0.2` に含まれています。そのコミット `7dc3f9e4d344db0d1916170ac1a87a937dd717d9` を明示して固定しました。追加ドライバも `2329edb80a589fdf4245b4edace0e9c1d3424b83` に固定しています。
+
 ## 書き込み前のリセット
 
 既存のファームウェアやBLE接続情報が残っている場合、先に`settings_reset-bmp_boost-zmk.uf2`を両側へ一度ずつ書き込んでください。

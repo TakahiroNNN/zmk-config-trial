@@ -57,3 +57,13 @@ include:
     artifact-name: torabo_tsuki_lp_double_ball_right_central
   - board: bmp_boost
     shield: settings_reset
+  # Left: 4-direction switch. Right: trackball and USB/BLE central.
+  # Flash both of these artifacts together; both sides need the extended layout.
+  - board: bmp_boost
+    shield: torabo_tsuki_lp_left
+    snippet: "studio-rpc-usb-uart kscan-4-direction-switch"
+    artifact-name: torabo_tsuki_lp_left_4_direction_peripheral
+  - board: bmp_boost
+    shield: torabo_tsuki_lp_right
+    snippet: "studio-rpc-usb-uart split-central input-trackball input-listener kscan-4-direction-switch-central"
+    artifact-name: torabo_tsuki_lp_right_trackball_4_direction_central
