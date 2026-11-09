@@ -12,7 +12,8 @@ manifest:
     - name: zmk-component-bmp-boost
       remote: sekigon-gonnoc
       import: west.yml
-      revision: v0.2
+      # v0.2, including the 2026-08-15 power-saving update.
+      revision: 7dc3f9e4d344db0d1916170ac1a87a937dd717d9
     - name: zmk-feature-status-led
       remote: sekigon-gonnoc
       revision: main
@@ -27,5 +28,8 @@ manifest:
     - name: zmk-feature-non-lipo-battery-management
       remote: sekigon-gonnoc
       revision: main
+    - name: zmk-driver-kscan-4-direction-switch
+      remote: sekigon-gonnoc
+      revision: 2329edb80a589fdf4245b4edace0e9c1d3424b83
   self:
     path: config
